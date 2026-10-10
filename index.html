@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Universidad de la Vida — una experiencia para conocer a Dios y fortalecer tu fe en Cristo.">
+<title>Universidad de la Vida | CFE Bello</title>
+<style>
+:root{--green:#123d32;--green2:#286449;--sage:#e9eee7;--cream:#fbf8f1;--gold:#d8ad62;--ink:#18362f;--muted:#53655e;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6}
+a{color:inherit}.container{width:min(1160px,92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:rgba(251,248,241,.96);backdrop-filter:blur(10px);border-bottom:1px solid #e5e4dc}
+.nav{display:flex;align-items:center;justify-content:space-between;min-height:76px;gap:20px}.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.05em;color:var(--green);text-decoration:none}.brand-mark{width:35px;height:28px;display:inline-block;position:relative}.brand-mark:before,.brand-mark:after{content:"";position:absolute;bottom:0;background:var(--green);clip-path:polygon(50% 0,100% 100%,0 100%)}.brand-mark:before{width:25px;height:25px;left:0}.brand-mark:after{width:20px;height:20px;right:0;opacity:.75}
+nav{display:flex;align-items:center;gap:28px}nav a{text-decoration:none;font-size:.92rem;color:#344e45}nav a:hover{color:var(--green2)}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 22px;border-radius:999px;background:var(--green2);color:#fff;text-decoration:none;border:0;font-weight:700;cursor:pointer;transition:.2s}.btn:hover{background:var(--green);transform:translateY(-1px)}.btn-outline{background:transparent;color:var(--green);border:1px solid #9bb0a2}
+.menu-btn{display:none;background:none;border:0;color:var(--green);font-size:1.5rem}
+.hero{background:linear-gradient(90deg,rgba(10,43,34,.97) 0%,rgba(10,43,34,.82) 42%,rgba(10,43,34,.12) 100%),url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=2000&q=85') center/cover;min-height:570px;display:flex;align-items:center;color:white}
+.hero-content{padding:90px 0;max-width:620px}.eyebrow{text-transform:uppercase;letter-spacing:.25em;font-size:.8rem;color:var(--gold);font-weight:700}.eyebrow:after{content:"";display:block;width:48px;height:3px;background:var(--gold);margin:17px 0}
+h1,h2,h3{font-family:Georgia,'Times New Roman',serif;line-height:1.08;margin:0 0 18px}h1{font-size:clamp(2.8rem,6vw,5.2rem);letter-spacing:-.035em}h1 span{color:var(--gold)}h2{font-size:clamp(2rem,4vw,3rem)}h3{font-size:1.45rem}.hero p{font-size:1.12rem;max-width:520px;color:#f3f4ef;margin-bottom:28px}.section{padding:84px 0}.section-head{max-width:700px;margin-bottom:38px}.section-head p{color:var(--muted)}.about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:54px;align-items:center}.about-copy p{color:var(--muted)}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:#eef0e9;border:1px solid #e2e7df;border-radius:18px;padding:28px 22px;text-align:center}.icon{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:var(--green2);color:#fff;font-size:1.6rem;margin:0 auto 18px}.card p{font-size:.94rem;color:var(--muted);margin-bottom:0}
+.quote{font-family:Georgia,serif;font-size:1.5rem;color:var(--green);font-style:italic;border-left:3px solid var(--gold);padding-left:22px;margin:30px 0}
+.encounter{background:var(--sage)}.encounter-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}.encounter-photo{min-height:440px;border-radius:22px;background:linear-gradient(0deg,rgba(10,43,34,.1),rgba(10,43,34,.02)),url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=85') center/cover;box-shadow:0 18px 50px #18362f20}.detail{display:flex;gap:15px;margin:22px 0}.detail-icon{font-size:1.35rem;color:var(--green2);width:30px}.detail strong{display:block;text-transform:uppercase;font-size:.8rem;letter-spacing:.08em}.detail p{margin:3px 0 0;color:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.step{padding:25px;background:#fff;border-radius:16px;border:1px solid #ece9df}.step-number{color:var(--green2);font-weight:800;font-size:.8rem;letter-spacing:.12em}.step p{color:var(--muted);margin-bottom:0}
+.register{background:linear-gradient(90deg,rgba(11,48,38,.94),rgba(11,48,38,.76)),url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1800&q=85') center/cover;color:#fff}.register-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:55px;align-items:center}.register p{color:#e1e9e2}.script{font-family:Georgia,serif;font-style:italic;color:var(--gold);font-size:1.8rem;margin-top:30px}
+.form-card{background:#fff;color:var(--ink);border-radius:20px;padding:clamp(22px,4vw,38px);box-shadow:0 20px 60px #061d163d}.form-card h3{font-family:Arial,sans-serif;font-size:1.45rem}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:.88rem;font-weight:700}.field input,.field select,.field textarea{width:100%;padding:13px 14px;border:1px solid #d9e0da;border-radius:9px;background:#fff;font:inherit;color:var(--ink)}.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid #8db59c;border-color:var(--green2)}.consent{display:flex;align-items:flex-start;gap:10px;font-size:.79rem;color:#52645c;margin:18px 0}.consent input{margin-top:5px}.consent a{color:var(--green2)}.form-note{font-size:.78rem;color:#65746d;margin-top:12px}.notice{display:none;padding:12px;border-radius:8px;background:#e8f4e9;color:#245b36;margin-top:14px}
+footer{background:#0d2f27;color:#e8eee8;padding:28px 0}.footer-row{display:flex;align-items:center;justify-content:space-between;gap:20px}.footer-small{font-size:.86rem;color:#bdcdc3}
+@media(max-width:800px){nav{display:none;position:absolute;top:76px;left:0;right:0;background:var(--cream);padding:20px 4%;flex-direction:column;align-items:flex-start;border-bottom:1px solid #e5e4dc}.nav.open nav{display:flex}.nav>.btn{display:none}.menu-btn{display:block}.hero{min-height:540px;background-position:60% center}.about-grid,.encounter-grid,.register-grid{grid-template-columns:1fr;gap:32px}.cards,.steps{grid-template-columns:1fr}.encounter-photo{min-height:320px;order:2}.section{padding:62px 0}.register-grid{gap:24px}.footer-row{flex-direction:column;align-items:flex-start}}
+@media(max-width:480px){.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.hero-content{padding:70px 0}.hero{min-height:500px}.btn{width:100%}.brand{font-size:.92rem}}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav" id="nav">
+    <a class="brand" href="#inicio"><span class="brand-mark" aria-hidden="true"></span><span>CFE BELLO</span></a>
+    <nav aria-label="Navegación principal">
+      <a href="#inicio">Inicio</a><a href="#experiencia">La experiencia</a><a href="#incluye">Qué incluye</a><a href="#encuentro">El encuentro</a><a href="#contacto">Contacto</a>
+    </nav>
+    <a class="btn" href="#preinscripcion">PREINSCRÍBETE</a>
+    <button class="menu-btn" aria-label="Abrir menú" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+  </div>
+</header>
+<main>
+<section class="hero" id="inicio">
+  <div class="container"><div class="hero-content">
+    <div class="eyebrow">Universidad de la Vida</div>
+    <h1>Una experiencia que puede <span>transformar</span> tu vida</h1>
+    <p>Un espacio para tener un encuentro personal con Jesús, fortalecer tu fe y comenzar una nueva historia.</p>
+    <a class="btn" href="#preinscripcion">QUIERO PREINSCRIBIRME <span aria-hidden="true">→</span></a>
+  </div></div>
+</section>
+<section class="section" id="experiencia">
+  <div class="container about-grid">
+    <div class="about-copy">
+      <div class="eyebrow">Un nuevo comienzo</div>
+      <h2>¿Qué es Universidad de la Vida?</h2>
+      <p>Es un curso diseñado para ayudarte a tener un encuentro personal con Dios y fortalecer tu fe en Cristo. A través de la Palabra, la oración y la comunidad, podrás descubrir el propósito de Dios para tu vida.</p>
+      <p>Durante nueve semanas tendrás la oportunidad de reflexionar, aprender y dar pasos concretos hacia una vida con sentido.</p>
+      <div class="quote">“Si estás listo para comenzar una nueva historia, este puede ser tu primer paso”.</div>
+    </div>
+    <div class="cards" id="incluye">
+      <article class="card"><div class="icon" aria-hidden="true">⌑</div><h3>9 clases</h3><p>Un espacio semanal para aprender y compartir con otros.</p></article>
+      <article class="card"><div class="icon" aria-hidden="true">▤</div><h3>Material del estudiante</h3><p>Una guía para acompañar tu proceso y cada lección.</p></article>
+      <article class="card"><div class="icon" aria-hidden="true">⌁</div><h3>Encuentro espiritual</h3><p>Un tiempo especial para profundizar en tu relación con Dios.</p></article>
+    </div>
+  </div>
+</section>
+<section class="section encounter" id="encuentro">
+  <div class="container encounter-grid">
+    <div class="encounter-photo" role="img" aria-label="Paisaje natural al amanecer"></div>
+    <div>
+      <div class="eyebrow">Un tiempo para renovar tu vida</div>
+      <h2>Un encuentro para hacer una pausa y escuchar</h2>
+      <p>El encuentro espiritual es una oportunidad para apartarte de la rutina, compartir con otros y dedicar un tiempo especial a la oración, la enseñanza y la reflexión.</p>
+      <div class="detail"><div class="detail-icon">▦</div><div><strong>Fecha</strong><p>[Confirma las fechas de la próxima edición]</p></div></div>
+      <div class="detail"><div class="detail-icon">⌖</div><div><strong>Lugar</strong><p>[Confirma el lugar del encuentro]</p></div></div>
+      <div class="detail"><div class="detail-icon">♧</div><div><strong>¿Quiénes pueden participar?</strong><p>[Confirma edades y requisitos de participación]</p></div></div>
+      <p><strong>Importante:</strong> confirma con el equipo organizador los requisitos para participar en el encuentro y las fechas vigentes.</p>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-head"><div class="eyebrow">Tu camino comienza aquí</div><h2>¿Cómo participar?</h2><p>Déjanos tus datos y el equipo organizador podrá orientarte sobre los siguientes pasos.</p></div>
+    <div class="steps">
+      <article class="step"><div class="step-number">PASO 01</div><h3>Preinscríbete</h3><p>Completa el formulario con tus datos de contacto.</p></article>
+      <article class="step"><div class="step-number">PASO 02</div><h3>Recibe información</h3><p>El equipo te indicará fechas, horarios, costos y detalles confirmados.</p></article>
+      <article class="step"><div class="step-number">PASO 03</div><h3>Prepárate para vivir la experiencia</h3><p>Conoce los requisitos y participa en el proceso de formación.</p></article>
+    </div>
+  </div>
+</section>
+<section class="section register" id="preinscripcion">
+  <div class="container register-grid">
+    <div>
+      <div class="eyebrow">Da el primer paso</div>
+      <h2>Hay una nueva historia por vivir</h2>
+      <p>Si quieres conocer más sobre Universidad de la Vida, completa el formulario de preinscripción. Nos pondremos en contacto contigo con la información correspondiente.</p>
+      <div class="script">Dios tiene algo grande para ti.</div>
+    </div>
+    <div class="form-card">
+      <h3>Formulario de preinscripción</h3>
+      <!-- IMPORTANTE: este formulario es una maqueta visual. Conecta el envío a Microsoft Forms, Google Forms o un backend antes de publicarlo. -->
+      <form id="registrationForm">
+        <div class="form-grid">
+          <div class="field full"><label for="nombre">Nombres y apellidos *</label><input id="nombre" name="nombre" autocomplete="name" required placeholder="Escribe tu nombre completo"></div>
+          <div class="field"><label for="celular">Celular *</label><input id="celular" name="celular" type="tel" autocomplete="tel" required placeholder="Número de contacto"></div>
+          <div class="field"><label for="correo">Correo electrónico</label><input id="correo" name="correo" type="email" autocomplete="email" placeholder="nombre@correo.com"></div>
+          <div class="field"><label for="edad">Rango de edad *</label><select id="edad" name="edad" required><option value="">Selecciona una opción</option><option>Menor de 18 años</option><option>18 a 25 años</option><option>26 a 35 años</option><option>36 a 50 años</option><option>Más de 50 años</option></select></div>
+          <div class="field"><label for="barrio">Barrio o municipio</label><input id="barrio" name="barrio" placeholder="Opcional"></div>
+          <div class="field full"><label for="como">¿Cómo te enteraste de Universidad de la Vida?</label><select id="como" name="como"><option value="">Selecciona una opción</option><option>Invitación de un amigo o familiar</option><option>Iglesia</option><option>Redes sociales</option><option>Volante o código QR</option><option>Otro medio</option></select></div>
+        </div>
+        <label class="consent"><input type="checkbox" id="autorizacion" required><span>He leído el aviso de privacidad y autorizo de manera previa, expresa e informada a <strong>[NOMBRE LEGAL DEL RESPONSABLE]</strong> a tratar mis datos para gestionar esta preinscripción y contactarme sobre esta actividad. Conozco mis derechos de consultar, actualizar y rectificar mis datos, solicitar prueba de esta autorización y ejercer los demás derechos previstos en la ley. Consulto la <a href="[ENLACE_POLITICA_DATOS]" target="_blank" rel="noopener">Política de Tratamiento de Datos Personales</a>. *</span></label>
+        <button class="btn" type="submit" style="width:100%">ENVIAR PREINSCRIPCIÓN →</button>
+        <div class="notice" id="notice" role="status">La maqueta funciona, pero todavía no envía ni guarda datos. Antes de publicarla, conecta el formulario a la herramienta elegida.</div>
+        <p class="form-note">* Campos obligatorios. No incluyas información sensible. Si se inscribirán menores de edad, adapta el formulario y la autorización antes de usarlo.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+<footer id="contacto"><div class="container footer-row">
+  <a class="brand" href="#inicio" style="color:white"><span class="brand-mark" aria-hidden="true"></span><span>CFE BELLO</span></a>
+  <div class="footer-small">Una generación que busca a Dios y transforma su entorno.</div>
+  <div class="footer-small">Contacto: [teléfono y correo oficiales]</div>
+</div></footer>
+<script>
+document.getElementById('registrationForm').addEventListener('submit',function(e){e.preventDefault();document.getElementById('notice').style.display='block';document.getElementById('notice').scrollIntoView({behavior:'smooth',block:'nearest'});});
+</script>
+</body>
+</html>

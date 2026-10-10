@@ -1,0 +1,13 @@
+UNIVERSIDAD DE LA VIDA — PÁGINA WEB INICIAL
+
+Archivos:
+- index.html: página responsive de una sola página, basada en la estructura y el contenido público de la referencia CFE Bello.
+
+ANTES DE PUBLICAR:
+1. Reemplaza las fechas, lugar, requisitos y contacto con información vigente confirmada.
+2. Reemplaza [NOMBRE LEGAL DEL RESPONSABLE] y [ENLACE_POLITICA_DATOS] por los datos reales.
+3. IMPORTANTE: el formulario incluido es solo visual y NO almacena ni envía respuestas. Conéctalo a Microsoft Forms, Google Forms o un backend antes de usarlo con participantes.
+4. Verifica los derechos de uso de las fotografías y sustitúyelas por imágenes propias/licenciadas si es necesario.
+5. Publica index.html en un hosting (por ejemplo, GitHub Pages, Netlify o el hosting del dominio de la organización) y genera el QR con la URL publicada.
+
+La información variable se dejó como marcador para evitar publicar fechas o costos antiguos de la página de referencia.
