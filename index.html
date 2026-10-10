@@ -96,8 +96,8 @@ footer{background:#0d2f27;color:#e8eee8;padding:28px 0}.footer-row{display:flex;
     </div>
     <div class="form-card">
       <h3>Formulario de preinscripción</h3>
-      <!-- IMPORTANTE: este formulario es una maqueta visual. Conecta el envío a Microsoft Forms, Google Forms o un backend antes de publicarlo. -->
-      <form id="registrationForm">
+      <form id="registrationForm" novalidate>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <div class="form-grid">
           <div class="field full"><label for="nombre">Nombres y apellidos *</label><input id="nombre" name="nombre" autocomplete="name" required placeholder="Escribe tu nombre completo"></div>
           <div class="field"><label for="celular">Celular *</label><input id="celular" name="celular" type="tel" autocomplete="tel" required placeholder="Número de contacto"></div>
@@ -108,7 +108,6 @@ footer{background:#0d2f27;color:#e8eee8;padding:28px 0}.footer-row{display:flex;
         </div>
         <label class="consent"><input type="checkbox" id="autorizacion" required><span>He leído el aviso de privacidad y autorizo de manera previa, expresa e informada a <strong>[NOMBRE LEGAL DEL RESPONSABLE]</strong> a tratar mis datos para gestionar esta preinscripción y contactarme sobre esta actividad. Conozco mis derechos de consultar, actualizar y rectificar mis datos, solicitar prueba de esta autorización y ejercer los demás derechos previstos en la ley. Consulto la <a href="[ENLACE_POLITICA_DATOS]" target="_blank" rel="noopener">Política de Tratamiento de Datos Personales</a>. *</span></label>
         <button class="btn" type="submit" style="width:100%">ENVIAR PREINSCRIPCIÓN →</button>
-        <div class="notice" id="notice" role="status">La maqueta funciona, pero todavía no envía ni guarda datos. Antes de publicarla, conecta el formulario a la herramienta elegida.</div>
         <p class="form-note">* Campos obligatorios. No incluyas información sensible. Si se inscribirán menores de edad, adapta el formulario y la autorización antes de usarlo.</p>
       </form>
     </div>
@@ -121,7 +120,120 @@ footer{background:#0d2f27;color:#e8eee8;padding:28px 0}.footer-row{display:flex;
   <div class="footer-small">Contacto: [teléfono y correo oficiales]</div>
 </div></footer>
 <script>
-document.getElementById('registrationForm').addEventListener('submit',function(e){e.preventDefault();document.getElementById('notice').style.display='block';document.getElementById('notice').scrollIntoView({behavior:'smooth',block:'nearest'});});
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwLvrNBihUgzL6UskQbKb1fmSoNNgaQ7PK5qOXa4_YcZEBtyq7nF0vvwqbhV543hx1w/exec';
+(function(){
+  var form = document.getElementById('registrationForm');
+  if(!form) return;
+  var btn = form.querySelector('button[type="submit"]');
+  var btnLabel = btn ? btn.textContent : '';
+  var consent = document.getElementById('autorizacion');
+  var honeypot = form.querySelector('input[name="website"]');
+
+  // Área de estado (duplicado / error de red). Oculta hasta que se necesite.
+  var statusEl = document.createElement('div');
+  statusEl.setAttribute('role','status');
+  statusEl.style.cssText = 'display:none;margin-top:14px;padding:12px;border-radius:8px;font-size:.92rem';
+  if(btn){ btn.insertAdjacentElement('afterend', statusEl); } else { form.appendChild(statusEl); }
+
+  function clearErrors(){
+    var errs = form.querySelectorAll('.field-error');
+    for(var i=0;i<errs.length;i++){ errs[i].parentNode.removeChild(errs[i]); }
+    statusEl.style.display = 'none';
+    statusEl.textContent = '';
+  }
+
+  function showError(el, msg){
+    var container = el.closest('.field') || el.closest('.consent') || el.parentNode;
+    var old = container.querySelector('.field-error');
+    if(old){ container.removeChild(old); }
+    var div = document.createElement('div');
+    div.className = 'field-error';
+    div.textContent = msg;
+    div.style.cssText = 'color:#b3261e;font-size:.78rem;margin-top:4px';
+    container.appendChild(div);
+  }
+
+  function showStatus(msg, type){
+    statusEl.textContent = msg;
+    if(type === 'dup'){ statusEl.style.background = '#fff7e6'; statusEl.style.color = '#8a5a00'; }
+    else { statusEl.style.background = '#fdecea'; statusEl.style.color = '#8a1c13'; }
+    statusEl.style.display = 'block';
+  }
+
+  function showSuccess(){
+    var done = document.createElement('div');
+    done.setAttribute('role','status');
+    done.textContent = '¡Listo! Tu inscripción fue recibida. Pronto te contactaremos.';
+    done.style.cssText = 'padding:12px;border-radius:8px;background:#e8f4e9;color:#245b36;font-size:1rem';
+    form.parentNode.replaceChild(done, form);
+  }
+
+  function setSending(sending){
+    if(!btn) return;
+    btn.disabled = sending;
+    btn.textContent = sending ? 'Enviando...' : btnLabel;
+  }
+
+  function validate(){
+    var firstInvalid = null;
+    function fail(el, msg){
+      showError(el, msg);
+      if(!firstInvalid){ firstInvalid = el; }
+    }
+    var nombre = document.getElementById('nombre');
+    var celularEl = document.getElementById('celular');
+    var edad = document.getElementById('edad');
+
+    if(!nombre.value.trim()){ fail(nombre, 'Escribe tu nombre completo.'); }
+
+    var digits = celularEl.value.replace(/[\s-]/g,'');
+    if(!digits){ fail(celularEl, 'Escribe tu número de celular.'); }
+    else if(!/^3\d{9}$/.test(digits)){ fail(celularEl, 'El celular debe tener 10 dígitos y empezar por 3.'); }
+
+    if(!edad.value){ fail(edad, 'Selecciona tu rango de edad.'); }
+
+    if(!consent.checked){ fail(consent, 'Debes autorizar el tratamiento de datos para continuar.'); }
+
+    return firstInvalid;
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    clearErrors();
+
+    var firstInvalid = validate();
+    if(firstInvalid){ firstInvalid.focus(); return; }
+
+    var params = new URLSearchParams();
+    params.append('nombre', document.getElementById('nombre').value.trim());
+    params.append('celular', document.getElementById('celular').value.replace(/[\s-]/g,''));
+    params.append('correo', document.getElementById('correo').value.trim());
+    params.append('edad', document.getElementById('edad').value);
+    params.append('barrio', document.getElementById('barrio').value.trim());
+    params.append('como', document.getElementById('como').value);
+    params.append('autorizacion', consent.checked ? 'si' : '');
+    params.append('website', honeypot ? honeypot.value : '');
+
+    setSending(true);
+    fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: params
+    }).then(function(res){ return res.json(); }).then(function(data){
+      if(data && data.ok === true && data.duplicado === true){
+        showStatus('Ya tenemos una inscripción con este celular.', 'dup');
+      } else if(data && data.ok === true){
+        showSuccess();
+      } else {
+        showStatus('No pudimos enviar tu inscripción. Revisa tu conexión e inténtalo de nuevo.', 'error');
+      }
+    }).catch(function(){
+      showStatus('No pudimos enviar tu inscripción. Revisa tu conexión e inténtalo de nuevo.', 'error');
+    }).then(function(){
+      setSending(false);
+    });
+  });
+})();
 </script>
 </body>
 </html>
