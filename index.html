@@ -4,7 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Universidad de la Vida — una experiencia para conocer a Dios y fortalecer tu fe en Cristo.">
-<title>Universidad de la Vida | CFE Bello</title>
+<title>Universidad de la Vida | MCI Medellín</title>
+<meta property="og:title" content="Universidad de la Vida | MCI Medellín">
+<meta property="og:description" content="Universidad de la Vida — una experiencia para conocer a Dios y fortalecer tu fe en Cristo.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/banner-inolvidable.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Universidad de la Vida | MCI Medellín">
+<meta name="twitter:description" content="Universidad de la Vida — una experiencia para conocer a Dios y fortalecer tu fe en Cristo.">
+<meta name="twitter:image" content="assets/banner-inolvidable.jpg">
 <style>
 :root{--green:#123d32;--green2:#286449;--sage:#e9eee7;--cream:#fbf8f1;--gold:#d8ad62;--ink:#18362f;--muted:#53655e;--white:#fff}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6}
@@ -29,21 +37,21 @@ footer{background:#0d2f27;color:#e8eee8;padding:28px 0}.footer-row{display:flex;
 <body>
 <header>
   <div class="container nav" id="nav">
-    <a class="brand" href="#inicio"><span class="brand-mark" aria-hidden="true"></span><span>CFE BELLO</span></a>
+    <a class="brand" href="#inicio"><img src="assets/mci-logo.png" alt="MCI Medellín" style="height:44px;width:44px;border-radius:50%;object-fit:cover"><span>MCI MEDELLÍN</span></a>
     <nav aria-label="Navegación principal">
       <a href="#inicio">Inicio</a><a href="#experiencia">La experiencia</a><a href="#incluye">Qué incluye</a><a href="#encuentro">El encuentro</a><a href="#contacto">Contacto</a>
     </nav>
-    <a class="btn" href="#preinscripcion">PREINSCRÍBETE</a>
+    <a class="btn" href="#preinscripcion">INSCRÍBETE</a>
     <button class="menu-btn" aria-label="Abrir menú" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
   </div>
 </header>
 <main>
 <section class="hero" id="inicio">
   <div class="container"><div class="hero-content">
-    <div class="eyebrow">Universidad de la Vida</div>
+    <div class="eyebrow">Universidad de la Vida · Todos a la mesa</div>
     <h1>Una experiencia que puede <span>transformar</span> tu vida</h1>
     <p>Un espacio para tener un encuentro personal con Jesús, fortalecer tu fe y comenzar una nueva historia.</p>
-    <a class="btn" href="#preinscripcion">QUIERO PREINSCRIBIRME <span aria-hidden="true">→</span></a>
+    <a class="btn" href="#preinscripcion">QUIERO INSCRIBIRME <span aria-hidden="true">→</span></a>
   </div></div>
 </section>
 <section class="section" id="experiencia">
@@ -80,7 +88,7 @@ footer{background:#0d2f27;color:#e8eee8;padding:28px 0}.footer-row{display:flex;
   <div class="container">
     <div class="section-head"><div class="eyebrow">Tu camino comienza aquí</div><h2>¿Cómo participar?</h2><p>Déjanos tus datos y el equipo organizador podrá orientarte sobre los siguientes pasos.</p></div>
     <div class="steps">
-      <article class="step"><div class="step-number">PASO 01</div><h3>Preinscríbete</h3><p>Completa el formulario con tus datos de contacto.</p></article>
+      <article class="step"><div class="step-number">PASO 01</div><h3>Inscríbete</h3><p>Completa el formulario con tus datos de contacto.</p></article>
       <article class="step"><div class="step-number">PASO 02</div><h3>Recibe información</h3><p>El equipo te indicará fechas, horarios, costos y detalles confirmados.</p></article>
       <article class="step"><div class="step-number">PASO 03</div><h3>Prepárate para vivir la experiencia</h3><p>Conoce los requisitos y participa en el proceso de formación.</p></article>
     </div>
@@ -91,11 +99,11 @@ footer{background:#0d2f27;color:#e8eee8;padding:28px 0}.footer-row{display:flex;
     <div>
       <div class="eyebrow">Da el primer paso</div>
       <h2>Hay una nueva historia por vivir</h2>
-      <p>Si quieres conocer más sobre Universidad de la Vida, completa el formulario de preinscripción. Nos pondremos en contacto contigo con la información correspondiente.</p>
+      <p>Si quieres conocer más sobre Universidad de la Vida, completa el formulario de inscripción. Nos pondremos en contacto contigo con la información correspondiente.</p>
       <div class="script">Dios tiene algo grande para ti.</div>
     </div>
     <div class="form-card">
-      <h3>Formulario de preinscripción</h3>
+      <h3>Formulario de inscripción</h3>
       <form id="registrationForm" novalidate>
         <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <div class="form-grid">
@@ -106,8 +114,8 @@ footer{background:#0d2f27;color:#e8eee8;padding:28px 0}.footer-row{display:flex;
           <div class="field"><label for="barrio">Barrio o municipio</label><input id="barrio" name="barrio" placeholder="Opcional"></div>
           <div class="field full"><label for="como">¿Cómo te enteraste de Universidad de la Vida?</label><select id="como" name="como"><option value="">Selecciona una opción</option><option>Invitación de un amigo o familiar</option><option>Iglesia</option><option>Redes sociales</option><option>Volante o código QR</option><option>Otro medio</option></select></div>
         </div>
-        <label class="consent"><input type="checkbox" id="autorizacion" required><span>He leído el aviso de privacidad y autorizo de manera previa, expresa e informada a <strong>[NOMBRE LEGAL DEL RESPONSABLE]</strong> a tratar mis datos para gestionar esta preinscripción y contactarme sobre esta actividad. Conozco mis derechos de consultar, actualizar y rectificar mis datos, solicitar prueba de esta autorización y ejercer los demás derechos previstos en la ley. Consulto la <a href="[ENLACE_POLITICA_DATOS]" target="_blank" rel="noopener">Política de Tratamiento de Datos Personales</a>. *</span></label>
-        <button class="btn" type="submit" style="width:100%">ENVIAR PREINSCRIPCIÓN →</button>
+        <label class="consent"><input type="checkbox" id="autorizacion" required><span>He leído el aviso de privacidad y autorizo de manera previa, expresa e informada a <strong>[NOMBRE LEGAL DEL RESPONSABLE]</strong> a tratar mis datos para gestionar esta inscripción y contactarme sobre esta actividad. Conozco mis derechos de consultar, actualizar y rectificar mis datos, solicitar prueba de esta autorización y ejercer los demás derechos previstos en la ley. Consulto la <a href="[ENLACE_POLITICA_DATOS]" target="_blank" rel="noopener">Política de Tratamiento de Datos Personales</a>. *</span></label>
+        <button class="btn" type="submit" style="width:100%">ENVIAR INSCRIPCIÓN →</button>
         <p class="form-note">* Campos obligatorios. No incluyas información sensible. Si se inscribirán menores de edad, adapta el formulario y la autorización antes de usarlo.</p>
       </form>
     </div>
@@ -115,7 +123,7 @@ footer{background:#0d2f27;color:#e8eee8;padding:28px 0}.footer-row{display:flex;
 </section>
 </main>
 <footer id="contacto"><div class="container footer-row">
-  <a class="brand" href="#inicio" style="color:white"><span class="brand-mark" aria-hidden="true"></span><span>CFE BELLO</span></a>
+  <a class="brand" href="#inicio" style="color:white"><img src="assets/mci-logo.png" alt="MCI Medellín" style="height:44px;width:44px;border-radius:50%;object-fit:cover;filter:brightness(0) invert(1)"><span>MCI MEDELLÍN</span></a>
   <div class="footer-small">Una generación que busca a Dios y transforma su entorno.</div>
   <div class="footer-small">Contacto: [teléfono y correo oficiales]</div>
 </div></footer>
