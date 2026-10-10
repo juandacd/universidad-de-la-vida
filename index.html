@@ -13,25 +13,31 @@
 <meta name="twitter:title" content="Universidad de la Vida | MCI Medellín">
 <meta name="twitter:description" content="Universidad de la Vida — una experiencia para conocer a Dios y fortalecer tu fe en Cristo.">
 <meta name="twitter:image" content="assets/banner-inolvidable.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 <style>
-:root{--green:#123d32;--green2:#286449;--sage:#e9eee7;--cream:#fbf8f1;--gold:#d8ad62;--ink:#18362f;--muted:#53655e;--white:#fff}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6}
+:root{--bg:#EADBCB;--bg-soft:#F3E9DE;--brown:#6B3F1D;--brown-dark:#4A2A12;--sky:#7DB9E0;--ink:#3B2A1E;--muted:#7A6554;--white:#FFFFFF}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:'Montserrat',Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
 a{color:inherit}.container{width:min(1160px,92%);margin:auto}
-header{position:sticky;top:0;z-index:10;background:rgba(251,248,241,.96);backdrop-filter:blur(10px);border-bottom:1px solid #e5e4dc}
-.nav{display:flex;align-items:center;justify-content:space-between;min-height:76px;gap:20px}.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.05em;color:var(--green);text-decoration:none}.brand-mark{width:35px;height:28px;display:inline-block;position:relative}.brand-mark:before,.brand-mark:after{content:"";position:absolute;bottom:0;background:var(--green);clip-path:polygon(50% 0,100% 100%,0 100%)}.brand-mark:before{width:25px;height:25px;left:0}.brand-mark:after{width:20px;height:20px;right:0;opacity:.75}
-nav{display:flex;align-items:center;gap:28px}nav a{text-decoration:none;font-size:.92rem;color:#344e45}nav a:hover{color:var(--green2)}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 22px;border-radius:999px;background:var(--green2);color:#fff;text-decoration:none;border:0;font-weight:700;cursor:pointer;transition:.2s}.btn:hover{background:var(--green);transform:translateY(-1px)}.btn-outline{background:transparent;color:var(--green);border:1px solid #9bb0a2}
-.menu-btn{display:none;background:none;border:0;color:var(--green);font-size:1.5rem}
-.hero{background:linear-gradient(90deg,rgba(10,43,34,.97) 0%,rgba(10,43,34,.82) 42%,rgba(10,43,34,.12) 100%),url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=2000&q=85') center/cover;min-height:570px;display:flex;align-items:center;color:white}
-.hero-content{padding:90px 0;max-width:620px}.eyebrow{text-transform:uppercase;letter-spacing:.25em;font-size:.8rem;color:var(--gold);font-weight:700}.eyebrow:after{content:"";display:block;width:48px;height:3px;background:var(--gold);margin:17px 0}
-h1,h2,h3{font-family:Georgia,'Times New Roman',serif;line-height:1.08;margin:0 0 18px}h1{font-size:clamp(2.8rem,6vw,5.2rem);letter-spacing:-.035em}h1 span{color:var(--gold)}h2{font-size:clamp(2rem,4vw,3rem)}h3{font-size:1.45rem}.hero p{font-size:1.12rem;max-width:520px;color:#f3f4ef;margin-bottom:28px}.section{padding:84px 0}.section-head{max-width:700px;margin-bottom:38px}.section-head p{color:var(--muted)}.about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:54px;align-items:center}.about-copy p{color:var(--muted)}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:#eef0e9;border:1px solid #e2e7df;border-radius:18px;padding:28px 22px;text-align:center}.icon{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:var(--green2);color:#fff;font-size:1.6rem;margin:0 auto 18px}.card p{font-size:.94rem;color:var(--muted);margin-bottom:0}
-.quote{font-family:Georgia,serif;font-size:1.5rem;color:var(--green);font-style:italic;border-left:3px solid var(--gold);padding-left:22px;margin:30px 0}
-.encounter{background:var(--sage)}.encounter-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}.encounter-photo{min-height:440px;border-radius:22px;background:linear-gradient(0deg,rgba(10,43,34,.1),rgba(10,43,34,.02)),url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=85') center/cover;box-shadow:0 18px 50px #18362f20}.detail{display:flex;gap:15px;margin:22px 0}.detail-icon{font-size:1.35rem;color:var(--green2);width:30px}.detail strong{display:block;text-transform:uppercase;font-size:.8rem;letter-spacing:.08em}.detail p{margin:3px 0 0;color:var(--muted)}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.step{padding:25px;background:#fff;border-radius:16px;border:1px solid #ece9df}.step-number{color:var(--green2);font-weight:800;font-size:.8rem;letter-spacing:.12em}.step p{color:var(--muted);margin-bottom:0}
-.register{background:linear-gradient(90deg,rgba(11,48,38,.94),rgba(11,48,38,.76)),url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1800&q=85') center/cover;color:#fff}.register-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:55px;align-items:center}.register p{color:#e1e9e2}.script{font-family:Georgia,serif;font-style:italic;color:var(--gold);font-size:1.8rem;margin-top:30px}
-.form-card{background:#fff;color:var(--ink);border-radius:20px;padding:clamp(22px,4vw,38px);box-shadow:0 20px 60px #061d163d}.form-card h3{font-family:Arial,sans-serif;font-size:1.45rem}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:.88rem;font-weight:700}.field input,.field select,.field textarea{width:100%;padding:13px 14px;border:1px solid #d9e0da;border-radius:9px;background:#fff;font:inherit;color:var(--ink)}.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid #8db59c;border-color:var(--green2)}.consent{display:flex;align-items:flex-start;gap:10px;font-size:.79rem;color:#52645c;margin:18px 0}.consent input{margin-top:5px}.consent a{color:var(--green2)}.form-note{font-size:.78rem;color:#65746d;margin-top:12px}.notice{display:none;padding:12px;border-radius:8px;background:#e8f4e9;color:#245b36;margin-top:14px}
-footer{background:#0d2f27;color:#e8eee8;padding:28px 0}.footer-row{display:flex;align-items:center;justify-content:space-between;gap:20px}.footer-small{font-size:.86rem;color:#bdcdc3}
-@media(max-width:800px){nav{display:none;position:absolute;top:76px;left:0;right:0;background:var(--cream);padding:20px 4%;flex-direction:column;align-items:flex-start;border-bottom:1px solid #e5e4dc}.nav.open nav{display:flex}.nav>.btn{display:none}.menu-btn{display:block}.hero{min-height:540px;background-position:60% center}.about-grid,.encounter-grid,.register-grid{grid-template-columns:1fr;gap:32px}.cards,.steps{grid-template-columns:1fr}.encounter-photo{min-height:320px;order:2}.section{padding:62px 0}.register-grid{gap:24px}.footer-row{flex-direction:column;align-items:flex-start}}
-@media(max-width:480px){.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.hero-content{padding:70px 0}.hero{min-height:500px}.btn{width:100%}.brand{font-size:.92rem}}
+header{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--brown)}
+.nav{display:flex;align-items:center;justify-content:space-between;min-height:76px;gap:20px}.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.05em;color:var(--brown);text-decoration:none}
+nav{display:flex;align-items:center;gap:28px}nav a{text-decoration:none;font-size:.92rem;color:var(--brown);font-weight:500}nav a:hover{color:var(--brown-dark)}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 22px;border-radius:999px;background:var(--brown);color:var(--white);text-decoration:none;border:0;font-weight:700;cursor:pointer;transition:.2s;font-family:'Montserrat',Arial,sans-serif}.btn:hover{background:var(--brown-dark);transform:translateY(-1px)}.btn-outline{background:transparent;color:var(--brown);border:1px solid var(--brown)}
+.menu-btn{display:none;background:none;border:0;color:var(--brown);font-size:1.5rem}
+.hero{background-color:var(--bg);background-image:radial-gradient(circle at 18% 28%,rgba(107,63,29,.06) 0,transparent 42%),radial-gradient(circle at 82% 72%,rgba(125,185,224,.12) 0,transparent 46%),radial-gradient(circle at 50% 50%,rgba(255,255,255,.25) 0,transparent 60%);color:var(--ink)}.hero h1{color:var(--brown)}
+.hero-banner{display:block;width:100%}.hero-banner img{display:block;width:100%;height:auto}
+.hero-content{padding:clamp(28px,6vw,56px) 0;max-width:640px;margin:0 auto;text-align:center}
+.eyebrow{text-transform:uppercase;letter-spacing:.25em;font-size:.8rem;color:var(--brown);font-weight:700}.eyebrow:after{content:"";display:block;width:48px;height:3px;background:var(--sky);margin:17px auto}
+h1,h2,h3{font-family:'Playfair Display',Georgia,'Times New Roman',serif;line-height:1.08;margin:0 0 18px}h1{font-size:clamp(2.6rem,7vw,5rem);letter-spacing:-.02em}h1 span{color:var(--sky)}h2{font-size:clamp(2rem,4vw,3rem)}h3{font-size:1.45rem}.hero p{font-size:1.12rem;max-width:520px;margin:0 auto 28px;color:var(--muted)}.section{padding:84px 0}.section-head{max-width:700px;margin-bottom:38px}.section-head p{color:var(--muted)}.about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:54px;align-items:center}.about-copy p{color:var(--muted)}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:var(--white);border:1px solid #e7d8c4;border-radius:18px;padding:28px 22px;text-align:center}.icon{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:var(--brown);color:#fff;font-size:1.6rem;margin:0 auto 18px}.card p{font-size:.94rem;color:var(--muted);margin-bottom:0}
+.quote{font-family:'Playfair Display',Georgia,serif;font-size:1.5rem;color:var(--brown);font-style:italic;border-left:3px solid var(--sky);padding-left:22px;margin:30px 0}
+.encounter{background:var(--bg-soft)}.encounter-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}.encounter-photo{min-height:440px;border-radius:22px;background:linear-gradient(0deg,rgba(107,63,29,.12),rgba(107,63,29,.03)),url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=85') center/cover;box-shadow:0 18px 50px #6B3F1D30}.detail{display:flex;gap:15px;margin:22px 0}.detail-icon{font-size:1.35rem;color:var(--brown);width:30px}.detail strong{display:block;text-transform:uppercase;font-size:.8rem;letter-spacing:.08em}.detail p{margin:3px 0 0;color:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.step{padding:25px;background:var(--white);border-radius:16px;border:1px solid #ece0cf}.step-number{color:var(--brown);font-weight:800;font-size:.8rem;letter-spacing:.12em}.step p{color:var(--muted);margin-bottom:0}
+.register{background:linear-gradient(90deg,rgba(74,42,18,.95),rgba(74,42,18,.78)),url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1800&q=85') center/cover;color:#fff}.register .eyebrow{color:var(--sky)}.register-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:55px;align-items:center}.register p{color:#eaddca}.script{font-family:'Playfair Display',Georgia,serif;font-style:italic;color:var(--sky);font-size:1.8rem;margin-top:30px}
+.form-card{background:var(--white);color:var(--ink);border-radius:20px;padding:clamp(22px,4vw,38px);box-shadow:0 20px 60px #4A2A1233}.form-card h3{font-family:'Playfair Display',Georgia,serif;font-size:1.45rem}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:.88rem;font-weight:700}.field input,.field select,.field textarea{width:100%;padding:13px 14px;border:1px solid #e0cdb2;border-radius:9px;background:#fff;font:inherit;color:var(--ink)}.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--sky);border-color:var(--brown)}.consent{display:flex;align-items:flex-start;gap:10px;font-size:.79rem;color:var(--muted);margin:18px 0}.consent input{margin-top:5px}.consent a{color:var(--brown)}.form-note{font-size:.78rem;color:var(--muted);margin-top:12px}.notice{display:none;padding:12px;border-radius:8px;background:var(--bg-soft);color:var(--brown);margin-top:14px}
+footer{background:var(--brown-dark);color:#f1e6d8;padding:28px 0}.footer-row{display:flex;align-items:center;justify-content:space-between;gap:20px}.footer-small{font-size:.86rem;color:#e3d2bd}
+@media(max-width:800px){nav{display:none;position:absolute;top:76px;left:0;right:0;background:var(--bg);padding:20px 4%;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--brown)}.nav.open nav{display:flex}.nav>.btn{display:none}.menu-btn{display:block}.about-grid,.encounter-grid,.register-grid{grid-template-columns:1fr;gap:32px}.cards,.steps{grid-template-columns:1fr}.encounter-photo{min-height:320px;order:2}.section{padding:62px 0}.register-grid{gap:24px}.footer-row{flex-direction:column;align-items:flex-start}.sticky-cta{display:block;position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px 14px;background:var(--bg-soft);border-top:1px solid var(--brown);box-shadow:0 -6px 20px rgba(74,42,18,.15)}.sticky-cta .btn{width:100%}.sticky-cta.is-hidden{display:none}body{padding-bottom:80px}}
+@media(max-width:480px){.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.brand{font-size:.92rem}}
+@media(min-width:801px){.hero-content{margin:0;text-align:left;padding:clamp(40px,7vw,84px) 0}.hero p{margin:0 0 28px}.eyebrow:after{margin:17px 0}}
 </style>
 </head>
 <body>
@@ -47,6 +53,10 @@ footer{background:#0d2f27;color:#e8eee8;padding:28px 0}.footer-row{display:flex;
 </header>
 <main>
 <section class="hero" id="inicio">
+  <picture class="hero-banner">
+    <source srcset="assets/banner-google.webp" type="image/webp">
+    <img src="assets/Banner_Google.png" alt="Universidad de la Vida — Todos a la mesa" width="1600" height="400">
+  </picture>
   <div class="container"><div class="hero-content">
     <div class="eyebrow">Universidad de la Vida · Todos a la mesa</div>
     <h1>Una experiencia que puede <span>transformar</span> tu vida</h1>
@@ -246,6 +256,20 @@ const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwLvrNBihUgzL6U
       setSending(false);
     });
   });
+})();
+</script>
+<div class="sticky-cta" id="stickyCta"><a class="btn" href="#preinscripcion">INSCRÍBETE</a></div>
+<script>
+(function(){
+  var bar=document.getElementById('stickyCta');
+  var target=document.getElementById('preinscripcion');
+  if(!bar||!target||typeof IntersectionObserver==='undefined'){return;}
+  var io=new IntersectionObserver(function(entries){
+    for(var i=0;i<entries.length;i++){
+      bar.classList.toggle('is-hidden', entries[i].isIntersecting);
+    }
+  },{threshold:0});
+  io.observe(target);
 })();
 </script>
 </body>
