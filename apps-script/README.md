@@ -5,8 +5,8 @@ la hoja **Inscripciones** de la Hoja de cálculo de Google a la que está
 vinculado (script *bound*). Expone dos funciones web:
 
 - `doPost(e)`: recibe `nombre`, `celular`, `correo`, `edad`, `barrio`,
-  `como`, `autorizacion` (y el honeypot oculto `website`). Valida los datos,
-  evita duplicados por celular y guarda la fila.
+  `encuentro`, `como`, `autorizacion` (y el honeypot oculto `website`). Valida
+  los datos, evita duplicados por celular y guarda la fila.
 - `doGet()`: comprobación de estado; responde
   `{"ok":true,"servicio":"inscripciones"}`.
 
@@ -91,6 +91,18 @@ misma URL `/exec`**, crea una nueva versión:
 La URL `/exec` no cambia; a partir de ese momento sirve la nueva versión del
 código.
 
+## Updating the script
+
+To publish changes to `Code.gs` **without changing the `/exec` URL**:
+
+1. In the Apps Script editor, click **Deploy** > **Manage deployments**.
+2. On the active deployment, click the **pencil icon** (✏️ *Edit*).
+3. Under **Version**, choose **New version**.
+4. (Optional) Add a description of the changes.
+5. Click **Deploy**.
+
+The `/exec` URL stays the same; it will now serve the new version of the code.
+
 ## Probar el endpoint (opcional)
 
 Desde una terminal (reemplaza la URL por la tuya):
@@ -118,6 +130,11 @@ Para comprobar que está activo, abre la URL `/exec` en el navegador (usa `GET`)
   colombiano). Se guardan solo los dígitos.
 - La columna **`edad`** almacena el rango seleccionado (p. ej. "18 a 25 años"),
   no una edad numérica.
+- El campo **`encuentro`** se guarda en la última columna, **Encuentro**
+  ("Mujeres" o "Hombres"). Si llega vacío se acepta por ahora (compatibilidad
+  temporal) y se guarda vacío; si trae otro valor se rechaza con
+  `{"ok":false,"error":"Encuentro inválido"}`. El encabezado de esta columna se
+  agrega automáticamente a hojas ya existentes sin afectar los datos previos.
 - El honeypot **`website`** debe ser un campo oculto en el formulario. Si llega
   con contenido, el envío se descarta en silencio respondiendo `{"ok":true}`.
 - Si el front-end hace la petición desde otro dominio, ten en cuenta las

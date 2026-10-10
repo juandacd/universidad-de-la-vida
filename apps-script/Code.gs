@@ -3,7 +3,7 @@
  * Google Apps Script vinculado (bound) a una Hoja de cálculo de Google.
  *
  * Recibe los campos del formulario (application/x-www-form-urlencoded):
- *   nombre, celular, correo, edad, barrio, como, autorizacion
+ *   nombre, celular, correo, edad, barrio, encuentro, como, autorizacion
  * El campo "website" es un honeypot oculto (los bots suelen rellenarlo).
  *
  * Respuesta siempre en JSON mediante ContentService.
@@ -27,7 +27,8 @@ var HEADERS = [
   'Rango de edad',
   'Barrio o municipio',
   'Cómo se enteró',
-  'Autorización'
+  'Autorización',
+  'Encuentro'
 ];
 
 /**
@@ -61,6 +62,14 @@ function getOrCreateSheet() {
     headerRange.setValues([HEADERS]);
     headerRange.setFontWeight('bold');
     sheet.setFrozenRows(1);
+  } else {
+    // La hoja ya existía: agrega el encabezado "Encuentro" (columna I) si falta,
+    // sin tocar las filas de datos existentes.
+    var encuentroHeader = sheet.getRange(1, HEADERS.length, 1, 1);
+    if (String(encuentroHeader.getValue()).trim() === '') {
+      encuentroHeader.setValue('Encuentro');
+      encuentroHeader.setFontWeight('bold');
+    }
   }
 
   return sheet;
@@ -87,6 +96,7 @@ function doPost(e) {
     var correo = String(p.correo || '').trim();
     var edad = String(p.edad || '').trim();
     var barrio = String(p.barrio || '').trim();
+    var encuentro = String(p.encuentro || '').trim();
     var como = String(p.como || '').trim();
     var autorizacion = String(p.autorizacion || '').trim().toLowerCase();
 
@@ -105,6 +115,11 @@ function doPost(e) {
     }
     if (autorizacion !== 'si') {
       return jsonResponse({ ok: false, error: 'Debes autorizar el tratamiento de datos.' });
+    }
+    // "encuentro": si viene vacío se acepta por ahora (compatibilidad temporal)
+    // y se guarda vacío; si trae un valor distinto de "Mujeres"/"Hombres" se rechaza.
+    if (encuentro !== '' && encuentro !== 'Mujeres' && encuentro !== 'Hombres') {
+      return jsonResponse({ ok: false, error: 'Encuentro inválido' });
     }
 
     // Bloqueo para evitar colisiones por escrituras concurrentes.
@@ -126,7 +141,7 @@ function doPost(e) {
       }
 
       var fecha = Utilities.formatDate(new Date(), TIMEZONE, 'yyyy-MM-dd HH:mm:ss');
-      sheet.appendRow([fecha, nombre, celular, correo, edad, barrio, como, 'Sí']);
+      sheet.appendRow([fecha, nombre, celular, correo, edad, barrio, como, 'Sí', encuentro]);
       SpreadsheetApp.flush();
 
       return jsonResponse({ ok: true });
