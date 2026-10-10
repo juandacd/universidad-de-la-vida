@@ -25,7 +25,7 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:'Montserrat',Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
 a{color:inherit}.container{width:min(1160px,92%);margin:auto}a:focus-visible,.btn:focus-visible,button:focus-visible,.menu-btn:focus-visible{outline:2px solid var(--sky-deep);outline-offset:3px;border-radius:8px}
 header{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--brown)}
-.nav{display:flex;align-items:center;justify-content:space-between;min-height:76px;gap:20px}.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.05em;color:var(--brown);text-decoration:none}
+.nav{display:flex;align-items:center;justify-content:space-between;min-height:76px;gap:20px}.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.05em;color:var(--brown);text-decoration:none}.brand-logo{height:40px;width:auto;display:block}.brand-chip{display:inline-flex;align-items:center;background:var(--bg);border-radius:12px;padding:12px 16px}.brand-chip .brand-logo{height:36px}
 nav{display:flex;align-items:center;gap:28px}nav a{text-decoration:none;font-size:.92rem;color:var(--brown);font-weight:500}nav a:hover{color:var(--brown-dark)}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 22px;border-radius:999px;background:var(--brown);color:var(--white);text-decoration:none;border:0;font-weight:700;cursor:pointer;transition:.2s;font-family:'Montserrat',Arial,sans-serif}.btn:hover{background:var(--brown-dark);transform:translateY(-1px)}.btn-outline{background:transparent;color:var(--brown);border:1px solid var(--brown)}
 .menu-btn{display:none;background:none;border:0;color:var(--brown);font-size:1.5rem}
 .hero{background-color:var(--bg);background-image:radial-gradient(circle at 18% 28%,rgba(107,63,29,.06) 0,transparent 42%),radial-gradient(circle at 82% 72%,rgba(125,185,224,.12) 0,transparent 46%),radial-gradient(circle at 50% 50%,rgba(255,255,255,.25) 0,transparent 60%);color:var(--ink)}.hero h1{color:var(--brown)}
@@ -57,7 +57,7 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,'Times New Roman',serif;line-hei
 footer{background:var(--brown-dark);color:#f1e6d8;padding:28px 0}.footer-row{display:flex;align-items:center;justify-content:space-between;gap:20px}.footer-small{font-size:.86rem;color:#e3d2bd}
 @media(max-width:800px){nav{display:none;position:absolute;top:76px;left:0;right:0;background:var(--bg);padding:20px 4%;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--brown)}.nav.open nav{display:flex}.nav>.btn{display:none}.menu-btn{display:block}.about-grid,.register-grid{grid-template-columns:1fr;gap:32px}.cards,.steps{grid-template-columns:1fr}.section{padding:56px 0}.register-grid{gap:24px}.footer-row{flex-direction:column;align-items:flex-start}.sticky-cta{display:block;position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px 14px;background:var(--bg-soft);border-top:1px solid var(--brown);box-shadow:0 -6px 20px rgba(74,42,18,.15)}.sticky-cta .btn{width:100%}.sticky-cta.is-hidden{display:none}body{padding-bottom:80px}}
 @media(max-width:480px){.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.brand{font-size:.92rem}}
-@media(min-width:801px){.hero-content{margin:0;text-align:left;padding:clamp(40px,7vw,84px) 0}.hero p{margin:0 0 28px}.eyebrow:after{margin:17px 0}.encounter-intro{margin:0 0 40px;text-align:left}.encounter-intro .eyebrow:after{margin-left:0;margin-right:0}.timeline{flex-direction:row;flex-wrap:wrap;gap:12px}.tl-node{flex:1 1 0;min-width:0;justify-content:flex-start}.tl-node.is-key{flex:1.4 1 0}.info-grid{grid-template-columns:1fr 1fr}.cards{grid-template-columns:repeat(3,1fr)}.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(107,63,29,.16)}.steps{grid-template-columns:repeat(3,1fr)}.steps:before{content:"";position:absolute;top:64px;left:6%;right:6%;height:2px;background:linear-gradient(90deg,transparent,rgba(125,185,224,.7),transparent);z-index:0}}
+@media(min-width:801px){.brand-logo{height:48px}.hero-content{margin:0;text-align:left;padding:clamp(40px,7vw,84px) 0}.hero p{margin:0 0 28px}.eyebrow:after{margin:17px 0}.encounter-intro{margin:0 0 40px;text-align:left}.encounter-intro .eyebrow:after{margin-left:0;margin-right:0}.timeline{flex-direction:row;flex-wrap:wrap;gap:12px}.tl-node{flex:1 1 0;min-width:0;justify-content:flex-start}.tl-node.is-key{flex:1.4 1 0}.info-grid{grid-template-columns:1fr 1fr}.cards{grid-template-columns:repeat(3,1fr)}.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(107,63,29,.16)}.steps{grid-template-columns:repeat(3,1fr)}.steps:before{content:"";position:absolute;top:64px;left:6%;right:6%;height:2px;background:linear-gradient(90deg,transparent,rgba(125,185,224,.7),transparent);z-index:0}}
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}.reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal,.reveal.in{opacity:1;transform:none}*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
 </style>
@@ -65,7 +65,7 @@ footer{background:var(--brown-dark);color:#f1e6d8;padding:28px 0}.footer-row{dis
 <body>
 <header>
   <div class="container nav" id="nav">
-    <a class="brand" href="#inicio"><img src="assets/mci-logo.png" alt="MCI Medellín" width="44" height="44" style="height:44px;width:44px;border-radius:50%;object-fit:cover"><span>MCI MEDELLÍN</span></a>
+    <a class="brand" href="#inicio"><img class="brand-logo" src="assets/mci-horizontal.png" alt="MCI Medellín" width="1300" height="406"></a>
     <nav aria-label="Navegación principal">
       <a href="#inicio">Inicio</a><a href="#experiencia">La experiencia</a><a href="#incluye">Qué incluye</a><a href="#encuentro">El encuentro</a><a href="#contacto">Contacto</a>
     </nav>
@@ -181,7 +181,7 @@ footer{background:var(--brown-dark);color:#f1e6d8;padding:28px 0}.footer-row{dis
 </section>
 </main>
 <footer id="contacto"><div class="container footer-row">
-  <a class="brand" href="#inicio" style="color:white"><img src="assets/mci-logo.png" alt="MCI Medellín" width="44" height="44" style="height:44px;width:44px;border-radius:50%;object-fit:cover;filter:brightness(0) invert(1)"><span>MCI MEDELLÍN</span></a>
+  <a class="brand" href="#inicio"><span class="brand-chip"><img class="brand-logo" src="assets/mci-horizontal.png" alt="MCI Medellín" width="1300" height="406"></span></a>
   <div class="footer-small">Una generación que busca a Dios y transforma su entorno.</div>
   <div class="footer-small">Contacto: <a href="tel:+573008573576">300 857 3576</a> · <a href="mailto:herreragib@gmail.com">herreragib@gmail.com</a></div>
 </div></footer>
