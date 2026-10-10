@@ -112,6 +112,7 @@ footer{background:#0d2f27;color:#e8eee8;padding:28px 0}.footer-row{display:flex;
           <div class="field"><label for="correo">Correo electrónico</label><input id="correo" name="correo" type="email" autocomplete="email" placeholder="nombre@correo.com"></div>
           <div class="field"><label for="edad">Rango de edad *</label><select id="edad" name="edad" required><option value="">Selecciona una opción</option><option>Menor de 18 años</option><option>18 a 25 años</option><option>26 a 35 años</option><option>36 a 50 años</option><option>Más de 50 años</option></select></div>
           <div class="field"><label for="barrio">Barrio o municipio</label><input id="barrio" name="barrio" placeholder="Opcional"></div>
+          <div class="field full"><label for="encuentro">Encuentro al que asistirás *</label><select id="encuentro" name="encuentro" required><option value="" disabled selected>Selecciona una opción</option><option value="Mujeres">Encuentro de mujeres (12 al 14 de noviembre)</option><option value="Hombres">Encuentro de hombres (14 al 16 de noviembre)</option></select></div>
           <div class="field full"><label for="como">¿Cómo te enteraste de Universidad de la Vida?</label><select id="como" name="como"><option value="">Selecciona una opción</option><option>Invitación de un amigo o familiar</option><option>Iglesia</option><option>Redes sociales</option><option>Volante o código QR</option><option>Otro medio</option></select></div>
         </div>
         <label class="consent"><input type="checkbox" id="autorizacion" required><span>Autorizo a MCI Medellín a usar mi nombre, celular y correo únicamente para gestionar mi inscripción y contactarme sobre Universidad de la Vida. Puedo pedir que actualicen o eliminen mis datos escribiendo a herreragib@gmail.com. Si soy menor de 18 años, mi padre, madre o acudiente autoriza esta inscripción. *</span></label>
@@ -191,6 +192,7 @@ const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwLvrNBihUgzL6U
     var nombre = document.getElementById('nombre');
     var celularEl = document.getElementById('celular');
     var edad = document.getElementById('edad');
+    var encuentro = document.getElementById('encuentro');
 
     if(!nombre.value.trim()){ fail(nombre, 'Escribe tu nombre completo.'); }
 
@@ -199,6 +201,8 @@ const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwLvrNBihUgzL6U
     else if(!/^3\d{9}$/.test(digits)){ fail(celularEl, 'El celular debe tener 10 dígitos y empezar por 3.'); }
 
     if(!edad.value){ fail(edad, 'Selecciona tu rango de edad.'); }
+
+    if(!encuentro.value){ fail(encuentro, 'Selecciona el encuentro al que asistirás.'); }
 
     if(!consent.checked){ fail(consent, 'Debes autorizar el tratamiento de datos para continuar.'); }
 
@@ -218,6 +222,7 @@ const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwLvrNBihUgzL6U
     params.append('correo', document.getElementById('correo').value.trim());
     params.append('edad', document.getElementById('edad').value);
     params.append('barrio', document.getElementById('barrio').value.trim());
+    params.append('encuentro', document.getElementById('encuentro').value);
     params.append('como', document.getElementById('como').value);
     params.append('autorizacion', consent.checked ? 'si' : '');
     params.append('website', honeypot ? honeypot.value : '');
